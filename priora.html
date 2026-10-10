@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRIORA - Your career, one clear direction</title>
+  <style>
+/* ---------- CSS variables (colors ek jagah se change ho jaate hain) ---------- */
+:root {
+  --bg: #f5f6fa;
+  --box: #ffffff;
+  --text: #1c2033;
+  --grey: #6b7090;
+  --border: #e2e5ee;
+  --main: #4338ca;
+  --light: #ecebfc;
+}
+
+/* dark mode ke liye body pe class lagayenge (JS se) */
+body.dark {
+  --bg: #0f1221;
+  --box: #181c30;
+  --text: #eceefa;
+  --grey: #9aa1c0;
+  --border: #292e49;
+  --main: #8b85ff;
+  --light: #242654;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;               /* sidebar aur main side by side */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background: var(--box);
+  border-right: 1px solid var(--border);
+  padding: 20px 15px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.logo {
+  color: var(--main);
+  margin-bottom: 20px;
+}
+
+.workspace {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--light);
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: var(--main);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.menu-title {
+  font-size: 12px;
+  color: var(--grey);
+  margin: 15px 0 5px 10px;
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu a {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: var(--grey);
+}
+
+.menu a:hover {
+  background: var(--bg);
+}
+
+.menu a.active {
+  background: var(--light);
+  color: var(--main);
+  font-weight: bold;
+}
+
+/* ---------- Main + topbar ---------- */
+.main {
+  flex: 1;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  background: var(--box);
+  border-bottom: 1px solid var(--border);
+}
+
+#searchBox {
+  width: 280px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+#themeBtn {
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--box);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+/* ---------- Banner ---------- */
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--main);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+}
+
+.banner-btn {
+  background: white;
+  color: var(--main);
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* ---------- Hero (grid se 2 columns) ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.small-tag {
+  color: var(--main);
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hero-text h1 {
+  font-size: 44px;
+  margin-bottom: 15px;
+}
+
+.hero-text p {
+  color: var(--grey);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.btn {
+  display: inline-block;
+  padding: 11px 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-right: 10px;
+  background: var(--box);
+}
+
+.btn-main {
+  background: var(--main);
+  color: white;
+  border-color: var(--main);
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--box);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+}
+
+.badge {
+  float: right;
+  background: #d8f5e9;
+  color: #0f7a57;
+  font-size: 12px;
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+
+.percent {
+  font-size: 48px;
+  margin: 8px 0;
+}
+
+/* progress bar */
+.bar-row {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.bar-row div.label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.track {
+  height: 8px;
+  background: var(--bg);
+  border-radius: 10px;
+}
+
+.fill {
+  height: 100%;
+  width: 0;                 /* shuru me 0, JS width badhayega */
+  background: var(--main);
+  border-radius: 10px;
+  transition: width 1s;
+}
+
+/* ---------- Toolkit grid ---------- */
+#toolkit h2 {
+  margin-bottom: 20px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.tool-card {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.tool-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--main);
+}
+
+.tool-card .icon {
+  font-size: 26px;
+}
+
+.tool-card h3 {
+  margin: 10px 0 5px;
+}
+
+.tool-card p {
+  color: var(--grey);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.tool-card span {
+  color: var(--main);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* ---------- Loop steps ---------- */
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.step {
+  flex: 1;
+  min-width: 100px;
+  text-align: center;
+  padding: 14px;
+  background: var(--light);
+  color: var(--main);
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.step.selected {
+  background: var(--main);
+  color: white;
+}
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  color: var(--grey);
+  font-size: 14px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 800px) {
+  .sidebar { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  #searchBox { width: 150px; }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- ===== Sidebar ===== -->
+  <aside class="sidebar">
+    <h2 class="logo">PRIORA.</h2>
+
+    <div class="workspace">
+      <div class="avatar">N</div>
+      <div>
+        <strong>Nancy's workspace</strong><br>
+        <small>Student plan</small>
+      </div>
+    </div>
+
+    <p class="menu-title">WORKSPACE</p>
+    <ul class="menu">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">Modules</a></li>
+      <li><a href="#">Progress</a></li>
+      <li><a href="#">Opportunities</a></li>
+      <li><a href="#">Student 360</a></li>
+    </ul>
+
+    <p class="menu-title">YOUR TOOLKIT</p>
+    <ul class="menu">
+      <li><a href="#">AI Career Brain</a></li>
+      <li><a href="#">Learning Hub</a></li>
+      <li><a href="#">Career Prep</a></li>
+      <li><a href="#">Opportunity Shield</a></li>
+    </ul>
+  </aside>
+
+  <!-- ===== Main area ===== -->
+  <div class="main">
+
+    <header class="topbar">
+      <span>Workspace / <strong>Home</strong></span>
+      <input type="text" id="searchBox" placeholder="Search anything...">
+      <button id="themeBtn">Dark mode</button>
+    </header>
+
+    <div class="content">
+
+      <div class="banner">
+        <div>
+          <strong>Keep your momentum</strong>
+          <p>You're making progress. One focused step at a time.</p>
+        </div>
+        <a href="#" class="banner-btn">View your progress</a>
+      </div>
+
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-text">
+          <p class="small-tag">YOUR CAREER COMMAND CENTER</p>
+          <h1>Your career, one clear direction.</h1>
+          <p>PRIORA helps students plan their career, learn smarter, prepare for opportunities, and track everything in one place.</p>
+          <a href="#" class="btn btn-main">Open Dashboard</a>
+          <a href="#toolkit" class="btn">Explore PRIORA</a>
+        </div>
+
+        <div class="card" id="momentumCard">
+          <p>Your momentum <span class="badge">On track</span></p>
+          <h2 class="percent">68%</h2>
+          <p>Career readiness</p>
+          <!-- progress bars JS se banenge -->
+          <div id="barBox"></div>
+        </div>
+      </section>
+
+      <!-- Toolkit cards (JS se generate honge) -->
+      <section id="toolkit">
+        <h2>Everything you need to move forward</h2>
+        <div class="card-grid" id="toolGrid"></div>
+      </section>
+
+      <!-- Loop -->
+      <section class="card loop">
+        <h2>Progress isn't a straight line. It's a loop.</h2>
+        <div class="steps" id="stepBox"></div>
+      </section>
+
+      <footer>
+        <p>© 2026 PRIORA. Your future, in focus.</p>
+      </footer>
+
+    </div>
+  </div>
+
+  <script>
+// ---------- DATA (arrays of objects) ----------
+// Cards ka data yaha rakha hai, taaki HTML me baar baar copy paste na karna pade
+
+const tools = [
+  { icon: "🧭", title: "AI Career Brain", desc: "Find the gaps between where you are and where you want to go.", cta: "Map your next move" },
+  { icon: "📚", title: "Learning & Productivity", desc: "Turn big goals into focused sessions and consistent habits.", cta: "Build momentum daily" },
+  { icon: "📝", title: "Career Preparation", desc: "Sharpen your resume and practice for the real conversation.", cta: "Be ready for what's next" },
+  { icon: "🛡️", title: "Opportunity Shield", desc: "Discover roles that fit and spot red flags before you apply.", cta: "Apply with confidence" },
+  { icon: "👤", title: "Student 360", desc: "Keep your skills, projects, and applications in one place.", cta: "Your complete picture" }
+];
+
+const progress = [
+  { name: "Learning", value: 82 },
+  { name: "Skills", value: 74 }
+];
+
+const steps = ["Plan", "Learn", "Prepare", "Apply", "Analyze", "Improve"];
+
+
+// ---------- 1. Toolkit cards banana (forEach loop + DOM) ----------
+const toolGrid = document.getElementById("toolGrid");
+
+tools.forEach(function (tool) {
+  const card = document.createElement("div");
+  card.className = "card tool-card";
+
+  // template literal se HTML string bana rahe hai
+  card.innerHTML = `
+    <div class="icon">${tool.icon}</div>
+    <h3>${tool.title}</h3>
+    <p>${tool.desc}</p>
+    <span>${tool.cta}</span>
+  `;
+
+  toolGrid.appendChild(card);
+});
+
+
+// ---------- 2. Progress bars ----------
+const barBox = document.getElementById("barBox");
+
+progress.forEach(function (item) {
+  const row = document.createElement("div");
+  row.className = "bar-row";
+  row.innerHTML = `
+    <div class="label"><span>${item.name}</span><span>${item.value}%</span></div>
+    <div class="track"><div class="fill"></div></div>
+  `;
+  barBox.appendChild(row);
+
+  // thoda delay do, warna transition animate nahi hota
+  // (width 0 se value tak jaati hai tabhi animation dikhti hai)
+  setTimeout(function () {
+    row.querySelector(".fill").style.width = item.value + "%";
+  }, 100);
+});
+
+
+// ---------- 3. Loop steps + click event ----------
+const stepBox = document.getElementById("stepBox");
+
+steps.forEach(function (name) {
+  const div = document.createElement("div");
+  div.className = "step";
+  div.textContent = name;
+
+  // click pe selected class lagao, baaki se hatao
+  div.addEventListener("click", function () {
+    document.querySelectorAll(".step").forEach(function (s) {
+      s.classList.remove("selected");
+    });
+    div.classList.add("selected");
+  });
+
+  stepBox.appendChild(div);
+});
+
+
+// ---------- 4. Dark mode toggle ----------
+const themeBtn = document.getElementById("themeBtn");
+
+themeBtn.addEventListener("click", function () {
+  document.body.classList.toggle("dark");
+
+  // button ka text bhi badlo
+  if (document.body.classList.contains("dark")) {
+    themeBtn.textContent = "Light mode";
+  } else {
+    themeBtn.textContent = "Dark mode";
+  }
+});
+
+
+// ---------- 5. Search box (cards filter karna) ----------
+const searchBox = document.getElementById("searchBox");
+
+searchBox.addEventListener("input", function () {
+  const text = searchBox.value.toLowerCase();
+
+  document.querySelectorAll(".tool-card").forEach(function (card) {
+    const title = card.querySelector("h3").textContent.toLowerCase();
+
+    // agar title me search text mila to dikhao, warna hide
+    if (title.includes(text)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
+
+  </script>
+</body>
+</html>
