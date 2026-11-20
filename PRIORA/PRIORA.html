@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRIORA — Priority + Aura = The Aura of Success</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       1. DESIGN TOKENS & THEME VARIABLES
+       ========================================================================== */
+    :root {
+      --bg: #f4f6fb;
+      --surface: #ffffff;
+      --surface-subtle: #f8fafc;
+      --navy-dark: #0b0f29;
+      --navy-card: #13193d;
+      --navy-border: rgba(255, 255, 255, 0.12);
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --primary: #4f46e5;
+      --primary-light: #6366f1;
+      --primary-hover: #4338ca;
+      --primary-soft: #eef2ff;
+      --accent-cyan: #38bdf8;
+      --accent-purple: #a855f7;
+      --success-bg: #dcfce7;
+      --success-text: #15803d;
+      --warning-bg: #fef3c7;
+      --warning-text: #b45309;
+      --danger-bg: #fee2e2;
+      --danger-text: #b91c1c;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 4px 10px -3px rgba(15, 23, 42, 0.03);
+      --radius-md: 12px;
+      --radius-lg: 18px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       2. DARK NAVY BRAND HEADER & CAREER LOOP
+       ========================================================================== */
+    .brand-header {
+      background: radial-gradient(circle at 15% 20%, #1e1b4b 0%, #0b0f29 55%, #070a1c 100%);
+      color: #ffffff;
+      border-bottom: 1px solid var(--navy-border);
+    }
+
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 20px 28px 18px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .priora-logo-box {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #38bdf8 0%, #6366f1 50%, #a855f7 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 24px rgba(99, 102, 241, 0.5);
+      flex-shrink: 0;
+    }
+
+    .brand-title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      background: linear-gradient(90deg, #ffffff 0%, #c7d2fe 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-formula {
+      font-size: 12px;
+      font-weight: 500;
+      color: #a5b4fc;
+      background: rgba(99, 102, 241, 0.18);
+      border: 1px solid rgba(165, 180, 252, 0.25);
+      padding: 3px 10px;
+      border-radius: 99px;
+    }
+
+    .brand-tagline {
+      font-size: 13.5px;
+      color: #cbd5e1;
+      margin-top: 3px;
+    }
+
+    .brand-tagline strong {
+      color: #c084fc;
+      font-weight: 600;
+    }
+
+    .student-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      padding: 8px 14px;
+      border-radius: 14px;
+    }
+
+    .student-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #6366f1, #ec4899);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .student-meta h4 {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #f8fafc;
+    }
+
+    .student-meta p {
+      font-size: 11.5px;
+      color: #94a3b8;
+    }
+
+    /* Interactive 6-Step Career Loop Bar */
+    .career-loop-wrapper {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--navy-border);
+      border-radius: 14px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .loop-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #38bdf8;
+    }
+
+    .loop-steps {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .loop-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: #cbd5e1;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 9px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .loop-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+    }
+
+    .loop-btn.active {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.35), rgba(168, 85, 247, 0.35));
+      border-color: rgba(165, 180, 252, 0.45);
+      color: #ffffff;
+    }
+
+    .loop-arrow {
+      color: #64748b;
+      font-size: 12px;
+    }
+
+    /* ==========================================================================
+       3. MULTI-VIEW NAVIGATION TABS
+       ========================================================================== */
+    .nav-tabs-bar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-tabs-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-tabs-inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      padding: 14px 16px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:hover {
+      color: var(--primary);
+    }
+
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    /* ==========================================================================
+       4. WORKSPACE LAYOUT & CARDS
+       ========================================================================== */
+    .workspace {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 28px 28px 60px;
+    }
+
+    .view-section {
+      display: none;
+      animation: fadeUp 0.25s ease;
+    }
+
+    .view-section.active {
+      display: block;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .grid-main-side {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .kicker {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .card-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .badge {
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 99px;
+      white-space: nowrap;
+    }
+
+    .badge-indigo { background: var(--primary-soft); color: var(--primary); }
+    .badge-green { background: var(--success-bg); color: var(--success-text); }
+    .badge-amber { background: var(--warning-bg); color: var(--warning-text); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: #ffffff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 600;
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.28);
+      transition: all 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(79, 70, 229, 0.36);
+    }
+
+    .btn-outline {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* ==========================================================================
+       5. VIEW 1: HOME & AI CAREER BLUEPRINT STYLES
+       ========================================================================== */
+    .greeting-banner {
+      background: linear-gradient(135deg, #4f46e5 0%, #6366f1 55%, #7c3aed 100%);
+      color: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 26px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 22px;
+      box-shadow: 0 12px 28px -8px rgba(79, 70, 229, 0.45);
+    }
+
+    .greeting-text h1 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .greeting-text p {
+      font-size: 14px;
+      color: #e0e7ff;
+    }
+
+    .score-pills {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .score-box {
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 14px;
+      padding: 12px 18px;
+      min-width: 145px;
+    }
+
+    .score-box-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #c7d2fe;
+      font-weight: 600;
+    }
+
+    .score-box-val {
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin: 2px 0;
+    }
+
+    .score-box-val span {
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0.85;
+    }
+
+    .score-box-sub {
+      font-size: 11.5px;
+      color: #a5f3fc;
+      font-weight: 600;
+    }
+
+    /* Goal Selector Pills */
+    .goal-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .goal-pill {
+      padding: 9px 15px;
+      border-radius: 11px;
+      border: 1px solid var(--border);
+      background: var(--surface-subtle);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.2s;
+    }
+
+    .goal-pill:hover {
+      border-color: var(--primary-light);
+    }
+
+    .goal-pill.selected {
+      background: var(--primary-soft);
+      border-color: var(--primary);
+      color: var(--primary);
+      box-shadow: 0 2px 8px rgba(79, 70, 229, 0.14);
+    }
+
+    /* Today's Tasks */
+    .task-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .task-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface-subtle);
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+    }
+
+    .task-item:hover {
+      border-color: var(--primary-light);
+      background: #ffffff;
+    }
+
+    .task-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .task-check {
+      width: 21px;
+      height: 21px;
+      border-radius: 6px;
+      border: 2px solid #cbd5e1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: transparent;
+      font-size: 12px;
+      font-weight: 800;
+      transition: all 0.15s;
+      flex-shrink: 0;
+    }
+
+    .task-item.done .task-check {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+    }
+
+    .task-item.done .task-title {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .task-title {
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+
+    .deadline-box {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Roadmap */
+    .roadmap-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .roadmap-step {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 13px 15px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface-subtle);
+    }
+
+    .roadmap-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 12.5px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .roadmap-step h4 {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .roadmap-step p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       6. VIEW 2: AI CAREER BRAIN (COPILOT CHAT)
+       ========================================================================== */
+    .copilot-shell {
+      background: var(--navy-dark);
+      color: #f8fafc;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .copilot-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--navy-border);
+      padding-bottom: 14px;
+    }
+
+    .chat-messages {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 340px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .msg {
+      max-width: 82%;
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    .msg-ai {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      color: #e2e8f0;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+
+    .msg-user {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: #ffffff;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+
+    .quick-prompts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .prompt-chip {
+      background: rgba(99, 102, 241, 0.16);
+      border: 1px solid rgba(165, 180, 252, 0.3);
+      color: #c7d2fe;
+      padding: 8px 13px;
+      border-radius: 10px;
+      font-size: 12.5px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .prompt-chip:hover {
+      background: rgba(99, 102, 241, 0.35);
+      color: #ffffff;
+    }
+
+    .chat-input-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .chat-input-row input {
+      flex: 1;
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      color: #ffffff;
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      outline: none;
+    }
+
+    .chat-input-row input:focus {
+      border-color: var(--primary-light);
+    }
+
+    /* ==========================================================================
+       7. VIEW 3: LEARNING HUB
+       ========================================================================== */
+    .progress-bar-bg {
+      height: 10px;
+      background: #e2e8f0;
+      border-radius: 99px;
+      overflow: hidden;
+      margin: 10px 0 18px;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--accent-purple));
+      border-radius: 99px;
+      transition: width 0.4s ease;
+    }
+
+    .module-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-bottom: 10px;
+      background: var(--surface-subtle);
+    }
+
+    .course-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: var(--surface-subtle);
+    }
+
+    /* ==========================================================================
+       8. VIEW 4: SKILL GAP & ATS RESUME BUILDER
+       ========================================================================== */
+    .radar-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 8px 0 16px;
+    }
+
+    .insight-box {
+      padding: 12px 14px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+
+    .insight-strength {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+    }
+
+    .insight-improve {
+      background: #fff1f2;
+      border: 1px solid #fecdd3;
+      color: #9f1239;
+    }
+
+    .ats-ring-box {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      padding: 16px;
+      border-radius: 14px;
+      margin-bottom: 16px;
+    }
+
+    .ats-score-circle {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      border: 5px solid var(--primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .ats-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13.5px;
+    }
+
+    /* ==========================================================================
+       9. VIEW 5: MOCK INTERVIEW & OPPORTUNITY HUB
+       ========================================================================== */
+    .segment-tabs {
+      display: inline-flex;
+      background: var(--surface-subtle);
+      padding: 4px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    .segment-btn {
+      border: none;
+      background: transparent;
+      padding: 6px 14px;
+      border-radius: 7px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .segment-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .perf-row {
+      margin-bottom: 12px;
+    }
+
+    .perf-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .job-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 15px 16px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      transition: border-color 0.2s;
+    }
+
+    .job-card:hover {
+      border-color: var(--primary);
+    }
+
+    .company-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       10. VIEW 6: SCAM SHIELD, STUDENT 360 & CAREER TWIN
+       ========================================================================== */
+    .shield-hero {
+      background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+      color: #ffffff;
+      border-radius: 14px;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .check-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 11px 14px;
+      border-radius: 10px;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      margin-bottom: 8px;
+      font-size: 13.5px;
+      font-weight: 500;
+    }
+
+    .s360-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .s360-stat {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+
+    .s360-stat span {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    .s360-stat strong {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .twin-card {
+      background: radial-gradient(circle at top right, #312e81 0%, #0f172a 100%);
+      color: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-top: 22px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .twin-compare {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 18px 0;
+    }
+
+    .twin-metric {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .twin-metric small {
+      color: #a5b4fc;
+      font-size: 11.5px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .twin-metric strong {
+      font-size: 15px;
+      color: #ffffff;
+    }
+
+    .quote-box {
+      background: rgba(99, 102, 241, 0.2);
+      border-left: 3px solid #38bdf8;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-style: italic;
+      color: #e0e7ff;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--navy-dark);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.25s ease;
+      z-index: 99;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 920px) {
+      .grid-2, .grid-main-side {
+        grid-template-columns: 1fr;
+      }
+      .twin-compare {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== 1. BRANDING & TOP HEADER ==================== -->
+  <header class="brand-header">
+    <div class="header-inner">
+      <div class="header-top">
+        <div class="brand-lockup">
+          <div class="priora-logo-box" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M6 3.5H14.5C17.8137 3.5 20.5 6.18629 20.5 9.5C20.5 12.8137 17.8137 15.5 14.5 15.5H10V20.5H6V3.5Z" fill="white"/>
+              <path d="M18.5 2.5L19.3 4.7L21.5 5.5L19.3 6.3L18.5 8.5L17.7 6.3L15.5 5.5L17.7 4.7L18.5 2.5Z" fill="#BAE6FD"/>
+            </svg>
+          </div>
+          <div>
+            <div class="brand-title-row">
+              <span class="brand-name">PRIORA</span>
+              <span class="brand-formula">Priority + Aura = The Aura of Success</span>
+            </div>
+            <p class="brand-tagline"><strong>Your Future Called. Time To Answer.</strong> — AI Career Operating System</p>
+          </div>
+        </div>
+
+        <div class="student-badge">
+          <div class="student-avatar">NB</div>
+          <div class="student-meta">
+            <h4>Nancy Bana</h4>
+            <p>B.Tech CSE • Target: <span id="headerTargetRole">Software Engineer</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive 6-Step Career Loop Bar -->
+      <div class="career-loop-wrapper">
+        <span class="loop-title">Career Loop</span>
+        <div class="loop-steps" id="careerLoopBar">
+          <button class="loop-btn active" data-target="view-home" data-step="Plan">🎯 Plan</button>
+          <span class="loop-arrow">→</span>
+          <button class="loop-btn" data-target="view-learning" data-step="Learn">📖 Learn</button>
+          <span class="loop-arrow">→</span>
+          <button class="loop-btn" data-target="view-skill-resume" data-step="Prepare">🧠 Prepare</button>
+          <span class="loop-arrow">→</span>
+          <button class="loop-btn" data-target="view-interview-jobs" data-step="Apply Safely">🛡️ Apply Safely</button>
+          <span class="loop-arrow">→</span>
+          <button class="loop-btn" data-target="view-shield-twin" data-step="Analyze">📊 Analyze</button>
+          <span class="loop-arrow">→</span>
+          <button class="loop-btn" data-target="view-copilot" data-step="Improve">⭐ Improve</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== 2. NAVIGATION TABS ==================== -->
+  <nav class="nav-tabs-bar" aria-label="PRIORA Core Modules">
+    <div class="nav-tabs-inner" id="mainNavTabs">
+      <button class="tab-btn active" data-view="view-home">🏠 Home &amp; Blueprint</button>
+      <button class="tab-btn" data-view="view-copilot">🤖 AI Career Brain</button>
+      <button class="tab-btn" data-view="view-learning">📚 Learning Hub</button>
+      <button class="tab-btn" data-view="view-skill-resume">🎯 Skill Gap &amp; Resume</button>
+      <button class="tab-btn" data-view="view-interview-jobs">💼 Mock Interview &amp; Jobs</button>
+      <button class="tab-btn" data-view="view-shield-twin">🛡️ Scam Shield &amp; Career Twin</button>
+    </div>
+  </nav>
+
+  <!-- ==================== 3. WORKSPACE VIEWS ==================== -->
+  <main class="workspace">
+
+    <!-- ======================================================================
+         VIEW 1: HOME & AI CAREER BLUEPRINT
+         ====================================================================== -->
+    <section class="view-section active" id="view-home">
+      <!-- Greeting & Live Scores -->
+      <div class="greeting-banner">
+        <div class="greeting-text">
+          <h1>Good Morning, Nancy! 👋</h1>
+          <p>"Small steps every day lead to big dreams."</p>
+        </div>
+        <div class="score-pills">
+          <div class="score-box">
+            <div class="score-box-label">Career Score</div>
+            <div class="score-box-val"><span id="careerScoreVal" style="font-size:26px;font-weight:800;opacity:1;">72</span><span> / 100</span></div>
+            <div class="score-box-sub" id="careerScoreNote">Keep going! 🚀</div>
+          </div>
+          <div class="score-box">
+            <div class="score-box-label">Readiness Score</div>
+            <div class="score-box-val">78%</div>
+            <div class="score-box-sub">Good progress!</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Goal Selection Card -->
+      <div class="card" style="margin-bottom: 22px;">
+        <div class="card-header" style="margin-bottom: 12px;">
+          <div>
+            <div class="kicker">STEP 3 • GOAL SELECTION</div>
+            <h2 class="card-title">What are you working towards?</h2>
+            <p class="card-sub">Choose your career goal to tailor your AI Career Blueprint</p>
+          </div>
+          <span class="badge badge-indigo" id="selectedGoalBadge">Tech • Remote / Flexible</span>
+        </div>
+        <div class="goal-pills" id="goalPills">
+          <button class="goal-pill selected" data-goal="Software Engineer">💻 Software Engineer</button>
+          <button class="goal-pill" data-goal="AI Engineer">🧠 AI Engineer</button>
+          <button class="goal-pill" data-goal="Data Analyst">📊 Data Analyst</button>
+          <button class="goal-pill" data-goal="UI/UX Designer">🎨 UI/UX Designer</button>
+          <button class="goal-pill" data-goal="Product Manager">🚀 Product Manager</button>
+        </div>
+      </div>
+
+      <div class="grid-main-side">
+        <!-- Today's Tasks & Upcoming Deadlines -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="kicker">HOME DASHBOARD</div>
+              <h2 class="card-title">Today's Tasks</h2>
+              <p class="card-sub">Check off tasks to boost your live Career Score</p>
+            </div>
+            <span class="badge badge-green" id="taskProgressBadge">3/5 completed</span>
+          </div>
+
+          <div class="task-list" id="todayTasksList">
+            <!-- Populated by JS -->
+          </div>
+
+          <div class="deadline-box">
+            <div>
+              <span style="font-size: 11px; font-weight: 700; color: #b45309; text-transform: uppercase; letter-spacing: 0.06em;">Upcoming Deadline</span>
+              <h4 style="font-size: 14.5px; font-weight: 700; color: #78350f;">TCS Internship Application</h4>
+            </div>
+            <span class="badge badge-amber">3 days left</span>
+          </div>
+        </div>
+
+        <!-- Personalized AI Career Blueprint Roadmap -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="kicker">AI CAREER BLUEPRINT</div>
+              <h2 class="card-title">Your Personalized Roadmap</h2>
+              <p class="card-sub">2 major gaps • 3 minor gaps identified</p>
+            </div>
+            <span class="badge badge-indigo">78% Ready</span>
+          </div>
+
+          <div class="roadmap-list">
+            <div class="roadmap-step">
+              <div class="roadmap-left">
+                <div class="step-num">1</div>
+                <div>
+                  <h4>Learn DSA &amp; System Design</h4>
+                  <p>Core algorithmic foundations &amp; scalability</p>
+                </div>
+              </div>
+              <span class="badge badge-indigo">2–3 months</span>
+            </div>
+
+            <div class="roadmap-step">
+              <div class="roadmap-left">
+                <div class="step-num">2</div>
+                <div>
+                  <h4>Build 3 Real Projects</h4>
+                  <p>Full-stack portfolio apps with live deployment</p>
+                </div>
+              </div>
+              <span class="badge badge-indigo">1–2 months</span>
+            </div>
+
+            <div class="roadmap-step">
+              <div class="roadmap-left">
+                <div class="step-num">3</div>
+                <div>
+                  <h4>Improve Communication</h4>
+                  <p>Structured problem explanation &amp; behavioral clarity</p>
+                </div>
+              </div>
+              <span class="badge badge-green">Ongoing</span>
+            </div>
+
+            <div class="roadmap-step">
+              <div class="roadmap-left">
+                <div class="step-num">4</div>
+                <div>
+                  <h4>Prepare for Interviews</h4>
+                  <p>Mock technical rounds &amp; ATS resume polish</p>
+                </div>
+              </div>
+              <span class="badge badge-indigo">1–2 months</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 16px; display: flex; justify-content: flex-end;">
+            <button class="btn-primary" onclick="switchView('view-skill-resume')">Analyze Skill Gaps →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 2: AI CAREER BRAIN (COPILOT CHAT)
+         ====================================================================== -->
+    <section class="view-section" id="view-copilot">
+      <div class="grid-main-side">
+        <div class="copilot-shell">
+          <div class="copilot-header">
+            <div>
+              <span style="font-size: 11px; font-weight: 700; color: #38bdf8; letter-spacing: 0.08em;">AI CAREER BRAIN</span>
+              <h2 style="font-size: 19px; font-weight: 700;">AI Career Copilot</h2>
+              <p style="font-size: 12.5px; color: #94a3b8;">Always here for your career journey</p>
+            </div>
+            <span class="badge" style="background: rgba(56,189,248,0.18); color: #7dd3fc;">● Online</span>
+          </div>
+
+          <div class="chat-messages" id="chatMessages">
+            <div class="msg msg-ai">
+              Hi Nancy! 👋 I'm your AI career copilot. Based on your B.Tech CSE profile and <strong>Software Engineer</strong> goal, your Readiness Score is <strong>78%</strong>. What would you like to know today?
+            </div>
+          </div>
+
+          <div>
+            <p style="font-size: 11.5px; color: #94a3b8; margin-bottom: 8px;">Quick Prompts:</p>
+            <div class="quick-prompts" id="quickPrompts">
+              <button class="prompt-chip" data-q="What should I learn next?">What should I learn next?</button>
+              <button class="prompt-chip" data-q="Am I internship ready?">Am I internship ready?</button>
+              <button class="prompt-chip" data-q="How can I improve my resume?">How can I improve my resume?</button>
+              <button class="prompt-chip" data-q="Create my study plan">Create my study plan</button>
+            </div>
+          </div>
+
+          <form class="chat-input-row" id="copilotForm">
+            <input type="text" id="copilotInput" placeholder="Ask anything about skills, internships, or interviews...">
+            <button type="submit" class="btn-primary">Send ➤</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <div class="kicker">LIVE PROFILE SCAN</div>
+          <h2 class="card-title">AI Skill Analysis Snapshot</h2>
+          <p class="card-sub" style="margin-bottom: 18px;">Real-time telemetry feeding your AI Career Copilot</p>
+
+          <div class="perf-row">
+            <div class="perf-top"><span>Programming</span><span>82%</span></div>
+            <div class="progress-bar-bg" style="margin: 4px 0 12px;"><div class="progress-bar-fill" style="width: 82%;"></div></div>
+          </div>
+          <div class="perf-row">
+            <div class="perf-top"><span>Projects</span><span>65%</span></div>
+            <div class="progress-bar-bg" style="margin: 4px 0 12px;"><div class="progress-bar-fill" style="width: 65%;"></div></div>
+          </div>
+          <div class="perf-row">
+            <div class="perf-top"><span>Communication</span><span>58%</span></div>
+            <div class="progress-bar-bg" style="margin: 4px 0 12px;"><div class="progress-bar-fill" style="width: 58%;"></div></div>
+          </div>
+          <div class="perf-row">
+            <div class="perf-top"><span>Resume</span><span>42% → 78% (ATS)</span></div>
+            <div class="progress-bar-bg" style="margin: 4px 0 12px;"><div class="progress-bar-fill" style="width: 78%;"></div></div>
+          </div>
+          <div class="perf-row">
+            <div class="perf-top"><span>Interview Readiness</span><span>37% → 70%</span></div>
+            <div class="progress-bar-bg" style="margin: 4px 0 12px;"><div class="progress-bar-fill" style="width: 70%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 3: LEARNING HUB
+         ====================================================================== -->
+    <section class="view-section" id="view-learning">
+      <div class="grid-main-side">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="kicker">CURATED FOR YOUR CAREER GOALS</div>
+              <h2 class="card-title">Frontend Development Path</h2>
+              <p class="card-sub">Beginner • 3 months • 12 courses</p>
+            </div>
+            <span class="badge badge-indigo" id="pathPercentBadge">60% Complete</span>
+          </div>
+
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="pathProgressBar" style="width: 60%;"></div>
+          </div>
+
+          <div class="module-row">
+            <div>
+              <h4 style="font-size: 14.5px; font-weight: 700;">1. HTML &amp; CSS</h4>
+              <p style="font-size: 12px; color: var(--text-muted);">Semantic layouts, Flexbox, Grid &amp; Responsive Design</p>
+            </div>
+            <span class="badge badge-green">Completed ✓</span>
+          </div>
+
+          <div class="module-row">
+            <div>
+              <h4 style="font-size: 14.5px; font-weight: 700;">2. JavaScript</h4>
+              <p style="font-size: 12px; color: var(--text-muted);">ES6+, DOM manipulation, Async/Await &amp; Fetch API</p>
+            </div>
+            <span class="badge badge-amber" id="jsStatusBadge">In Progress</span>
+          </div>
+
+          <div class="module-row">
+            <div>
+              <h4 style="font-size: 14.5px; font-weight: 700;">3. React</h4>
+              <p style="font-size: 12px; color: var(--text-muted);">Components, Hooks, State Management &amp; Routing</p>
+            </div>
+            <button class="btn-outline" id="startReactBtn" onclick="advanceLearningPath()">Start Module</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="kicker">AI PICKS</div>
+              <h2 class="card-title">Recommended Courses</h2>
+              <p class="card-sub">High-impact courses to close your skill gaps</p>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div>
+              <span class="badge badge-indigo" style="margin-bottom: 6px; display: inline-block;">4.8 ★ (12k reviews)</span>
+              <h4 style="font-size: 15px; font-weight: 700;">DSA with C++</h4>
+              <p style="font-size: 12.5px; color: var(--text-muted);">Arrays, Trees, Graphs &amp; Dynamic Programming</p>
+            </div>
+            <button class="btn-primary" onclick="showToast('Enrolled in DSA with C++! Added to your Learning Hub.')">Enroll</button>
+          </div>
+
+          <div class="course-card">
+            <div>
+              <span class="badge badge-indigo" style="margin-bottom: 6px; display: inline-block;">4.7 ★ (8.9k reviews)</span>
+              <h4 style="font-size: 15px; font-weight: 700;">React for Beginners</h4>
+              <p style="font-size: 12.5px; color: var(--text-muted);">Build 3 production-grade frontend projects</p>
+            </div>
+            <button class="btn-primary" onclick="showToast('Enrolled in React for Beginners! Added to your Learning Hub.')">Enroll</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 4: SKILL GAP ANALYSIS & ATS RESUME BUILDER
+         ====================================================================== -->
+    <section class="view-section" id="view-skill-resume">
+      <div class="grid-2">
+        <!-- Skill Gap Analysis Pentagon Radar -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="kicker">SKILL GAP ANALYSIS</div>
+              <h2 class="card-title">Current vs Target Profile</h2>
+              <p class="card-sub">Your strengths &amp; areas of improvement</p>
+            </div>
+            <span class="badge badge-green">Growth Forecast: +35% in 6 mo</span>
+          </div>
+
+          <div class="radar-wrap">
+            <svg width="290" height="235" viewBox="0 0 290 235" aria-label="Skill Gap Analysis Pentagon Radar">
+              <!-- Outer to Inner Pentagons -->
+              <polygon points="145,28 232,91 199,193 91,193 58,91" fill="none" stroke="#cbd5e1" stroke-width="1"/>
+              <polygon points="145,56 206,100 183,172 107,172 84,100" fill="none" stroke="#cbd5e1" stroke-width="1"/>
+              <polygon points="145,84 180,109 167,151 123,151 110,109" fill="none" stroke="#cbd5e1" stroke-width="1"/>
+              <!-- Radial Spokes -->
+              <line x1="145" y1="118" x2="145" y2="28" stroke="#e2e8f0" stroke-width="1"/>
+              <line x1="145" y1="118" x2="232" y2="91" stroke="#e2e8f0" stroke-width="1"/>
+              <line x1="145" y1="118" x2="199" y2="193" stroke="#e2e8f0" stroke-width="1"/>
+              <line x1="145" y1="118" x2="91" y2="193" stroke="#e2e8f0" stroke-width="1"/>
+              <line x1="145" y1="118" x2="58" y2="91" stroke="#e2e8f0" stroke-width="1"/>
+
+              <!-- Target Role Polygon (Dashed Purple) -->
+              <polygon points="145,35 222,94 191,184 99,184 68,94"
+                       fill="rgba(168, 85, 247, 0.08)"
+                       stroke="#a855f7"
+                       stroke-width="1.8"
+                       stroke-dasharray="4 3"/>
+
+              <!-- Current Student Polygon (Indigo) -->
+              <polygon points="145,48 202,99 176,162 111,166 86,98"
+                       fill="rgba(79, 70, 229, 0.24)"
+                       stroke="#4f46e5"
+                       stroke-width="2.2"/>
+
+              <!-- Axis Labels -->
+              <text x="145" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">Programming</text>
+              <text x="240" y="92" text-anchor="start" font-size="11" font-weight="700" fill="#0f172a">Projects</text>
+              <text x="208" y="210" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">Communication</text>
+              <text x="82" y="210" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">Interview</text>
+              <text x="50" y="92" text-anchor="end" font-size="11" font-weight="700" fill="#0f172a">Resume</text>
+            </svg>
+            <div style="display: flex; gap: 18px; font-size: 12px; color: var(--text-muted);">
+              <span><strong style="color: #4f46e5;">●</strong> Current</span>
+              <span><strong style="color: #a855f7;">◌</strong> Target</span>
+            </div>
+          </div>
+
+          <div class="insight-box insight-strength">
+            <strong>★ Strengths:</strong> Problem Solving, Logical Thinking, Consistency
+          </div>
+          <div class="insight-box insight-improve">
+            <strong>▲ Areas to Improve:</strong> System Design, Communication, Resume Building
+          </div>
+        </div>
+
+        <!-- ATS Resume Builder -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="kicker">RESUME BUILDER</div>
+              <h2 class="card-title">Stand out. Get hired.</h2>
+              <p class="card-sub">Automated ATS compatibility &amp; keyword optimization</p>
+            </div>
+          </div>
+
+          <div class="ats-ring-box">
+            <div class="ats-score-circle" id="atsScoreCircle">78<span style="font-size: 10px; font-weight: 600;">/100</span></div>
+            <div>
+              <span class="badge badge-green" id="atsRatingBadge">Good ATS Score</span>
+              <h4 style="font-size: 15px; font-weight: 700; margin-top: 6px;">Nancy_Bana_SDE_Resume.pdf</h4>
+              <p style="font-size: 12.5px; color: var(--text-muted);">Parsed cleanly across Workday, Greenhouse &amp; Lever</p>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            <div class="ats-row"><span>Keywords</span><span class="badge badge-green">Good</span></div>
+            <div class="ats-row"><span>Format</span><span class="badge badge-green">Good</span></div>
+            <div class="ats-row"><span>Skills</span><span class="badge badge-amber" id="atsSkillsStatus">Needs Improvement</span></div>
+            <div class="ats-row" style="border-bottom: none;"><span>Sections</span><span class="badge badge-green">Good</span></div>
+          </div>
+
+          <div style="background: var(--surface-subtle); padding: 12px 14px; border-radius: 12px; font-size: 12.5px; color: var(--text-muted); margin-bottom: 16px;">
+            <strong style="color: var(--text); display: block; margin-bottom: 4px;">AI Suggestions:</strong>
+            • Add more industry keywords (React, REST APIs, Git)<br>
+            • Highlight measurable impact in your 3 projects<br>
+            • Improve summary section alignment
+          </div>
+
+          <button class="btn-primary" style="width: 100%;" id="boostAtsBtn" onclick="boostResumeScore()">✨ One-Click Improvement (+14 pts)</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 5: MOCK INTERVIEW & OPPORTUNITY HUB
+         ====================================================================== -->
+    <section class="view-section" id="view-interview-jobs">
+      <div class="grid-2">
+        <!-- Mock Interview Simulator -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="kicker">MOCK INTERVIEW</div>
+              <h2 class="card-title">Practice. Improve. Get Hired.</h2>
+            </div>
+          </div>
+
+          <div class="segment-tabs" id="interviewTabs">
+            <button class="segment-btn active" data-type="Technical" data-role="React Developer - Technical">Technical</button>
+            <button class="segment-btn" data-type="HR" data-role="Culture Fit & Career Goals - HR">HR</button>
+            <button class="segment-btn" data-type="Behavioral" data-role="STAR Leadership & Teamwork - Behavioral">Behavioral</button>
+          </div>
+
+          <div style="background: var(--primary-soft); border: 1px solid rgba(79,70,229,0.2); border-radius: 14px; padding: 16px; margin-bottom: 18px;">
+            <span class="kicker">NEXT SESSION</span>
+            <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 4px;" id="nextSessionTitle">React Developer - Technical</h3>
+            <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 14px;">30 mins • AI Interviewer with real-time feedback</p>
+            <button class="btn-primary" onclick="showToast('Starting AI Mock Interview Room... Microphone & code pad ready!')">Start Interview</button>
+          </div>
+
+          <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 12px;">Previous Performance</h4>
+
+          <div class="perf-row">
+            <div class="perf-top"><span>Communication</span><span>8.5 / 10</span></div>
+            <div class="progress-bar-bg" style="margin: 4px 0 10px;"><div class="progress-bar-fill" style="width: 85%;"></div></div>
+          </div>
+          <div class="perf-row">
+            <div class="perf-top"><span>Confidence</span><span>7.8 / 10</span></div>
+            <div class="progress-bar-bg" style="margin: 4px 0 10px;"><div class="progress-bar-fill" style="width: 78%;"></div></div>
+          </div>
+          <div class="perf-row">
+            <div class="perf-top"><span>Technical Knowledge</span><span>8.2 / 10</span></div>
+            <div class="progress-bar-bg" style="margin: 4px 0 10px;"><div class="progress-bar-fill" style="width: 82%;"></div></div>
+          </div>
+        </div>
+
+        <!-- Opportunity Hub -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="kicker">OPPORTUNITY HUB</div>
+              <h2 class="card-title">Internships • Jobs • Build Your Future</h2>
+            </div>
+            <span class="badge badge-indigo">2 Applied • 1 In Progress</span>
+          </div>
+
+          <div id="jobsList">
+            <div class="job-card">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <div class="company-badge">G</div>
+                <div>
+                  <h4 style="font-size: 14.5px; font-weight: 700;">Google — Software Engineering Intern</h4>
+                  <p style="font-size: 12px; color: var(--text-muted);">Bengaluru • Remote • <strong style="color: var(--success-text);">92% match</strong></p>
+                </div>
+              </div>
+              <button class="btn-primary" onclick="applyJob(this, 'Google')">Apply</button>
+            </div>
+
+            <div class="job-card">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <div class="company-badge">M</div>
+                <div>
+                  <h4 style="font-size: 14.5px; font-weight: 700;">Microsoft — Product Intern</h4>
+                  <p style="font-size: 12px; color: var(--text-muted);">Hyderabad • Remote • <strong style="color: var(--success-text);">87% match</strong></p>
+                </div>
+              </div>
+              <button class="btn-primary" onclick="applyJob(this, 'Microsoft')">Apply</button>
+            </div>
+
+            <div class="job-card">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <div class="company-badge">TCS</div>
+                <div>
+                  <h4 style="font-size: 14.5px; font-weight: 700;">TCS — Full Stack Developer</h4>
+                  <p style="font-size: 12px; color: var(--text-muted);">Bengaluru • <strong style="color: var(--primary);">78% match</strong></p>
+                </div>
+              </div>
+              <button class="btn-primary" onclick="applyJob(this, 'TCS')">Apply</button>
+            </div>
+
+            <div class="job-card" style="margin-bottom: 0;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <div class="company-badge">A</div>
+                <div>
+                  <h4 style="font-size: 14.5px; font-weight: 700;">Amazon — SDE Intern</h4>
+                  <p style="font-size: 12px; color: var(--text-muted);">Bengaluru • Remote • <strong style="color: var(--primary);">76% match</strong></p>
+                </div>
+              </div>
+              <button class="btn-primary" onclick="applyJob(this, 'Amazon')">Apply</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 6: SCAM SHIELD, STUDENT 360 & AI CAREER TWIN
+         ====================================================================== -->
+    <section class="view-section" id="view-shield-twin">
+      <div class="grid-2">
+        <!-- Opportunity Scam Shield -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="kicker">OPPORTUNITY SCAM SHIELD</div>
+              <h2 class="card-title">Your Safety, Our Priority</h2>
+            </div>
+            <span class="badge badge-green">Safe</span>
+          </div>
+
+          <div class="shield-hero">
+            <div>
+              <div style="font-size: 12px; opacity: 0.85;">Verified Opportunity Trust Score</div>
+              <div style="font-size: 32px; font-weight: 800;">94 <span style="font-size: 16px; font-weight: 500;">/ 100</span></div>
+            </div>
+            <div style="font-size: 34px;">🛡️</div>
+          </div>
+
+          <div class="check-row"><span>Company Verification</span><span class="badge badge-green">Verified ✓</span></div>
+          <div class="check-row"><span>Recruiter Verification</span><span class="badge badge-green">Verified ✓</span></div>
+          <div class="check-row"><span>Risk Detection</span><span class="badge badge-green">No risks found</span></div>
+          <div class="check-row"><span>Safety Insights</span><span class="badge badge-green">No suspicious activity</span></div>
+
+          <p style="font-size: 12px; color: var(--text-muted); margin-top: 12px;">
+            🔒 <strong>Stay Safe:</strong> Always verify companies and never share sensitive personal or banking data.
+          </p>
+        </div>
+
+        <!-- Student 360 Complete Career Dashboard -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="kicker">STUDENT 360</div>
+              <h2 class="card-title">Your Complete Career Dashboard</h2>
+            </div>
+            <span class="badge badge-indigo">Overall Growth: 78% On track</span>
+          </div>
+
+          <div class="s360-grid">
+            <div class="s360-stat"><span>Career Readiness</span><strong>72%</strong></div>
+            <div class="s360-stat"><span>Learning Progress</span><strong>68%</strong></div>
+            <div class="s360-stat"><span>Projects Built</span><strong>85%</strong></div>
+            <div class="s360-stat"><span>Interview Readiness</span><strong>70%</strong></div>
+            <div class="s360-stat"><span>Applications</span><strong>12</strong></div>
+            <div class="s360-stat"><span>Growth Trajectory</span><strong style="color: var(--success-text);">+35%</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Career Twin Projection Card -->
+      <div class="twin-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #38bdf8; text-transform: uppercase;">AI CAREER TWIN • AI-POWERED FUTURE YOU</span>
+            <h2 style="font-size: 22px; font-weight: 800; margin-top: 4px;">Future Software Engineer @ Google <span style="font-size: 14px; font-weight: 500; color: #c7d2fe;">(in 3 years)</span></h2>
+          </div>
+          <span class="badge" style="background: rgba(56,189,248,0.2); color: #bae6fd;">Current vs Future Simulation</span>
+        </div>
+
+        <div class="twin-compare">
+          <div class="twin-metric">
+            <small>Skills Mastery</small>
+            <strong>68% → 92%</strong>
+          </div>
+          <div class="twin-metric">
+            <small>Experience</small>
+            <strong>1 yr → 3 yrs</strong>
+          </div>
+          <div class="twin-metric">
+            <small>Compensation Trajectory</small>
+            <strong>4 LPA → 18 LPA</strong>
+          </div>
+        </div>
+
+        <div class="quote-box">
+          "The you from 3 years later is proud of the effort you put in today. Keep going! 💜"
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Toast Feedback -->
+  <div class="toast" id="toastBox"></div>
+
+  <script>
+    /* ==========================================================================
+       1. NAVIGATION & CAREER LOOP SYNCHRONIZATION
+       ========================================================================== */
+    const navButtons = document.querySelectorAll(".tab-btn");
+    const loopButtons = document.querySelectorAll(".loop-btn");
+    const viewSections = document.querySelectorAll(".view-section");
+
+    function switchView(viewId) {
+      viewSections.forEach((sec) => sec.classList.toggle("active", sec.id === viewId));
+      navButtons.forEach((btn) => btn.classList.toggle("active", btn.dataset.view === viewId));
+      loopButtons.forEach((btn) => btn.classList.toggle("active", btn.dataset.target === viewId));
+    }
+
+    navButtons.forEach((btn) => {
+      btn.addEventListener("click", () => switchView(btn.dataset.view));
+    });
+
+    loopButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        switchView(btn.dataset.target);
+        showToast(`Career Loop → ${btn.dataset.step}`);
+      });
+    });
+
+    /* ==========================================================================
+       2. GOAL SELECTION PILLS
+       ========================================================================== */
+    const goalMeta = {
+      "Software Engineer": "Tech • Remote / Flexible",
+      "AI Engineer": "ML & LLMs • High Growth",
+      "Data Analyst": "SQL & BI • Product Analytics",
+      "UI/UX Designer": "Design Systems • Figma",
+      "Product Manager": "Strategy & Execution • APM"
+    };
+
+    document.querySelectorAll(".goal-pill").forEach((pill) => {
+      pill.addEventListener("click", () => {
+        document.querySelectorAll(".goal-pill").forEach((p) => p.classList.remove("selected"));
+        pill.classList.add("selected");
+        const role = pill.dataset.goal;
+        document.getElementById("headerTargetRole").textContent = role;
+        document.getElementById("selectedGoalBadge").textContent = goalMeta[role];
+        showToast(`Career Blueprint updated for ${role}`);
+      });
+    });
+
+    /* ==========================================================================
+       3. TODAY'S TASKS (3/5 COMPLETED INITIALLY) & LIVE CAREER SCORE
+       ========================================================================== */
+    const tasksData = [
+      { id: 1, title: "Complete DSA practice", done: true },
+      { id: 2, title: "Learn React basics", done: true },
+      { id: 3, title: "Update your resume", done: true },
+      { id: 4, title: "Watch interview video", done: false },
+      { id: 5, title: "Apply for 2 internships", done: false }
+    ];
+
+    function renderTasks() {
+      const container = document.getElementById("todayTasksList");
+      container.innerHTML = "";
+      let doneCount = 0;
+
+      tasksData.forEach((task) => {
+        if (task.done) doneCount++;
+        const row = document.createElement("div");
+        row.className = `task-item ${task.done ? "done" : ""}`;
+        row.innerHTML = `
+          <div class="task-left">
+            <div class="task-check">✓</div>
+            <span class="task-title">${task.title}</span>
+          </div>
+          <span class="badge ${task.done ? "badge-green" : "badge-indigo"}">${task.done ? "Done" : "Pending"}</span>
+        `;
+        row.addEventListener("click", () => {
+          task.done = !task.done;
+          renderTasks();
+        });
+        container.appendChild(row);
+      });
+
+      document.getElementById("taskProgressBadge").textContent = `${doneCount}/${tasksData.length} completed`;
+
+      // Base score is 72 at 3/5 tasks; each extra task shifts score by 3 points
+      const liveScore = Math.min(100, Math.max(50, 72 + (doneCount - 3) * 3));
+      document.getElementById("careerScoreVal").textContent = liveScore;
+      document.getElementById("careerScoreNote").textContent =
+        liveScore >= 78 ? "Internship Ready! 🌟" : "Keep going! 🚀";
+    }
+
+    /* ==========================================================================
+       4. AI CAREER BRAIN COPILOT CHAT
+       ========================================================================== */
+    const copilotReplies = {
+      "What should I learn next?":
+        "Focus on finishing <strong>JavaScript async patterns</strong> and starting <strong>React Hooks</strong> in your Learning Hub, paired with 45 mins of <strong>DSA with C++</strong> daily.",
+      "Am I internship ready?":
+        "You are <strong>78% ready</strong>! Your Programming (82%) and ATS Resume (78%) are strong. Complete 2 mock technical interviews to cross 85% before the TCS deadline.",
+      "How can I improve my resume?":
+        "Add industry keywords like <strong>React, REST APIs, and System Design</strong>, and quantify your 3 project outcomes. Jump to <em>Skill Gap &amp; Resume</em> to use One-Click Improvement!",
+      "Create my study plan":
+        "<strong>Weekly Plan for Nancy:</strong><br>• Mon–Wed: 1 hr DSA + 1 hr React<br>• Thu: ATS Resume &amp; Project README polish<br>• Fri–Sat: 1 AI Mock Technical Interview + 2 Verified Internship Applications."
+    };
+
+    function appendMessage(text, isUser = false) {
+      const box = document.getElementById("chatMessages");
+      const div = document.createElement("div");
+      div.className = `msg ${isUser ? "msg-user" : "msg-ai"}`;
+      div.innerHTML = text;
+      box.appendChild(div);
+      box.scrollTop = box.scrollHeight;
+    }
+
+    document.querySelectorAll(".prompt-chip").forEach((chip) => {
+      chip.addEventListener("click", () => {
+        const q = chip.dataset.q;
+        appendMessage(q, true);
+        setTimeout(() => {
+          appendMessage(copilotReplies[q] || "Let's break that down into actionable daily steps in your Career Loop!");
+        }, 280);
+      });
+    });
+
+    document.getElementById("copilotForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const input = document.getElementById("copilotInput");
+      const val = input.value.trim();
+      if (!val) return;
+      appendMessage(val, true);
+      input.value = "";
+      setTimeout(() => {
+        const reply =
+          copilotReplies[val] ||
+          `Great question, Nancy! For your <strong>Software Engineer</strong> goal, I recommend prioritizing high-match roles (like Google 92% &amp; Microsoft 87%) while strengthening System Design.`;
+        appendMessage(reply);
+      }, 300);
+    });
+
+    /* ==========================================================================
+       5. LEARNING HUB & ATS RESUME ONE-CLICK BOOST
+       ========================================================================== */
+    function advanceLearningPath() {
+      document.getElementById("pathProgressBar").style.width = "80%";
+      document.getElementById("pathPercentBadge").textContent = "80% Complete";
+      const jsBadge = document.getElementById("jsStatusBadge");
+      jsBadge.className = "badge badge-green";
+      jsBadge.textContent = "Completed ✓";
+      const btn = document.getElementById("startReactBtn");
+      btn.textContent = "In Progress";
+      btn.className = "badge badge-amber";
+      showToast("React module started! Frontend Path updated to 80%.");
+    }
+
+    function boostResumeScore() {
+      document.getElementById("atsScoreCircle").innerHTML = '92<span style="font-size:10px;font-weight:600;">/100</span>';
+      document.getElementById("atsRatingBadge").textContent = "Excellent ATS Score";
+      const skillBadge = document.getElementById("atsSkillsStatus");
+      skillBadge.className = "badge badge-green";
+      skillBadge.textContent = "Optimized ✓";
+      const btn = document.getElementById("boostAtsBtn");
+      btn.textContent = "✓ ATS Score Boosted to 92/100";
+      btn.disabled = true;
+      btn.style.opacity = "0.8";
+      showToast("One-Click Improvement applied! ATS Score jumped from 78 to 92.");
+    }
+
+    /* ==========================================================================
+       6. MOCK INTERVIEW TABS & OPPORTUNITY APPLY
+       ========================================================================== */
+    document.querySelectorAll("#interviewTabs .segment-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#interviewTabs .segment-btn").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById("nextSessionTitle").textContent = btn.dataset.role;
+      });
+    });
+
+    function applyJob(btn, company) {
+      btn.textContent = "Applied ✓";
+      btn.style.background = "#15803d";
+      btn.disabled = true;
+      showToast(`Application submitted safely to ${company} (Verified by Scam Shield)!`);
+    }
+
+    /* ==========================================================================
+       7. TOAST HELPER
+       ========================================================================== */
+    let toastTimer;
+    function showToast(message) {
+      const toast = document.getElementById("toastBox");
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 2800);
+    }
+
+    // Initialize default dashboard state
+    renderTasks();
+  </script>
+</body>
+</html>
